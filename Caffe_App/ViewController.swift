@@ -1,12 +1,13 @@
-//VC Регистрации пользователей
+// VC Регистрации пользователей
 
 import UIKit
 
 final class ViewController: UIViewController {
-    //MARK: -IBOutlet
+    // MARK: - IBOutlet
     private @IBOutlet weak var emailTextField: UITextField!
     private @IBOutlet weak var passwordTextField: UITextField!
     
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -14,7 +15,7 @@ final class ViewController: UIViewController {
         passwordTextField.delegate = self
     }
     
-    //MARK: -IBAction
+    // MARK: - IBAction
     private @IBAction func entryButton(_ sender: UIButton) {
         if self.emailTextField.text!.isEmpty || self.passwordTextField.text!.isEmpty {
             let alertController = UIAlertController(title: "Ошибка", message: "Введите логин и пароль", preferredStyle: .alert)
@@ -26,7 +27,7 @@ final class ViewController: UIViewController {
     
 }
 
-//Расширение для автоматического перехода клавиатуры на новую строчку
+// Расширение для автоматического перехода клавиатуры на новую строчку
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {

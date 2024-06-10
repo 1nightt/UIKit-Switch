@@ -1,8 +1,8 @@
 import UIKit
 
-//Экран с возможными действиями взаимодействия
-final class ViewController2: UIViewController {
-    //MARK: -IBOutlet
+// Экран с возможными действиями взаимодействия
+final class NewController: UIViewController {
+    // MARK: - IBOutlet
     private @IBOutlet weak var fioTextField: UITextField!
     private @IBOutlet weak var countTextField: UITextField!
     private @IBOutlet weak var numberTextField: UITextField!
@@ -15,7 +15,7 @@ final class ViewController2: UIViewController {
         numberTextField.delegate = self
     }
     
-    //MARK: -IBAction
+    // MARK: - IBAction
     private @IBAction func entryButton(_ sender: UIButton) {
         if fioTextField.text!.isEmpty || countTextField.text!.isEmpty || numberTextField.text!.isEmpty {
             let alertController = UIAlertController(title: "Ошибка", message: "Введите все данные", preferredStyle: .alert)
@@ -36,7 +36,7 @@ final class ViewController2: UIViewController {
     }
 }
 
-//Переход клавиатуры на новую строчку textField
+// Переход клавиатуры на новую строчку textField
 extension ViewController2: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == fioTextField {
