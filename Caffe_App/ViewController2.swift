@@ -1,28 +1,22 @@
-//
-//  ViewController2.swift
-//  Caffe_App
-//
-//  Created by Яна Шахмина on 06.06.2024.
-//
-
 import UIKit
 
-class ViewController2: UIViewController {
-    @IBOutlet weak var fioTextField: UITextField!
-    @IBOutlet weak var countTextField: UITextField!
-    @IBOutlet weak var numberTextField: UITextField!
+//Экран с возможными действиями взаимодействия
+final class ViewController2: UIViewController {
+    //MARK: -IBOutlet
+    private @IBOutlet weak var fioTextField: UITextField!
+    private @IBOutlet weak var countTextField: UITextField!
+    private @IBOutlet weak var numberTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         fioTextField.delegate = self
         countTextField.delegate = self
         numberTextField.delegate = self
     }
-
-    @IBAction func entryButton(_ sender: UIButton) {
+    
+    //MARK: -IBAction
+    private @IBAction func entryButton(_ sender: UIButton) {
         if fioTextField.text!.isEmpty || countTextField.text!.isEmpty || numberTextField.text!.isEmpty {
             let alertController = UIAlertController(title: "Ошибка", message: "Введите все данные", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -42,6 +36,7 @@ class ViewController2: UIViewController {
     }
 }
 
+//Переход клавиатуры на новую строчку textField
 extension ViewController2: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == fioTextField {
